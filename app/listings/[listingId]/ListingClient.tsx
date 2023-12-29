@@ -15,6 +15,7 @@ import { categories } from "@/app/components/navbar/Categories";
 import ListingHead from "@/app/components/listings/ListingHead";
 import ListingInfo from "@/app/components/listings/ListingInfo";
 import ListingReservation from "@/app/components/listings/ListingReservation";
+import Review from "@/app/components/Review";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -35,6 +36,11 @@ const ListingClient: React.FC<ListingClientProps> = ({
   reservations = [],
   currentUser
 }) => {
+  
+  const handleAddReview = (rating: number, comment: string) => {
+    // Xử lý logic thêm đánh giá vào hệ thống
+    console.log(`Thêm đánh giá: Điểm ${rating}, Bình luận: ${comment}`);
+  };
   const loginModal = useLoginModal();
   const router = useRouter();
 
@@ -161,6 +167,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
                 disabled={isLoading}
                 disabledDates={disabledDates}
               />
+             
             </div>
           </div>
         </div>
